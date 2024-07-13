@@ -1,7 +1,22 @@
+
+using Eticaret.DAL.Data;
+using Microsoft.EntityFrameworkCore;
+
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+String connstring = builder.Configuration.GetConnectionString("SqlServerBaglantisi")!;
+builder.Services.AddScoped<DbContext, AppDbContext>();
+builder.Services.AddDbContext<AppDbContext>(opt => opt.UseSqlServer(connstring));
+
+
+
+
+
+
+
 
 var app = builder.Build();
 

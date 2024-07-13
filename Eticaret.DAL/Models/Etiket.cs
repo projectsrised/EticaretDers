@@ -7,13 +7,11 @@ using Eticaret.DAL.Models.Concrate;
 
 namespace Eticaret.DAL.Models
 {
-
-    public class Sayfalar: BaseClass
+    public class Etiket:BaseClass
     {
         public int Id { get; set; }
-        public string Baslik { get; set; }
-        public string Icerik { get; set; }
-        public DateTime DuzenlemeTarihi { get; set; }
+        public string Adi { get; set; }
 
-    } 
+        public virtual List<Makale>? Makales { get; set; }
+    }
 }
