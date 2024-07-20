@@ -1,0 +1,12 @@
+﻿@model IQueryable<Eticaret.DAL.Models.Makale>
+
+
+<ul class="list-unstyled">
+    @foreach (var item in Model)
+    {
+        <li>
+            @item.Baslik <span>@item.CreatedAt.ToString("dd MMMM yyyy")</span>
+            <p>@item.Icerik</p>
+       </li>
+    }
+</ul>

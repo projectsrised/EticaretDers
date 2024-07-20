@@ -1,0 +1,36 @@
+﻿@model IQueryable<Eticaret.DAL.Models.Kategori>
+
+
+<form action="/Makale/create" method="post">
+    <div class="row">
+        <div class="col-6 mt-4">
+            <select class="form-select" name="KategoriId">
+                @foreach (var item in Model)
+                {
+                    <option value="@item.Id">@item.Adi</option>
+                }
+            </select>
+            <div class="form-group mt-4">
+                <label>Makale Başlığı</label>
+                <input type="text" class="form-control" name="title"/>
+            </div>
+            <div class="form-group mt-4">
+                <label>Makale Açıklama</label>
+                <input type="text" class="form-control" name="aciklama"/>
+            </div>
+            <div class="form-group mt-4">
+                <label>Makale İçerik</label>
+                <input type="text" class="form-control" name="icerik"/>
+            </div>
+            <div class="form-group mt-4">
+                <label>Makale Yazar</label>
+                <input type="text" class="form-control" name="yazar"/>
+            </div>
+            <input type="submit" value="Gönder"/>
+        </div>
+    </div>
+</form>
+
+
+
+

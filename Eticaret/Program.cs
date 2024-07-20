@@ -1,5 +1,9 @@
 
+using Eticaret.BAL.Interfaces;
+using Eticaret.BAL.Services;
 using Eticaret.DAL.Data;
+using Eticaret.Repository.Interfaces;
+using Eticaret.Repository.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 
@@ -9,6 +13,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 String connstring = builder.Configuration.GetConnectionString("SqlServerBaglantisi")!;
 builder.Services.AddScoped<DbContext, AppDbContext>();
+builder.Services.AddScoped<IKategoriRespository, KategoriRepository>();
+builder.Services.AddScoped<IMakaleRepository, MakaleRepository>();
+builder.Services.AddScoped<IKategoriService, KategoriService>();
+builder.Services.AddScoped<IMakaleService, MakaleService>();
 builder.Services.AddDbContext<AppDbContext>(opt => opt.UseSqlServer(connstring));
 
 
